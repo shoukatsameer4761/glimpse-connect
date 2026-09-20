@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, Sajawal_Pro_plan]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security:
+    name: Security gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Static malware and credential tripwires
+        run: python3 scripts/security/scan.py
+      - name: Scanner regression tests
+        run: python3 -m unittest discover -s scripts/security -p 'test_*.py'
+
+  quality:
+    name: Typecheck, lint, test, build
+    needs: security
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VITE_SUPABASE_URL: https://example.supabase.co
+      VITE_SUPABASE_ANON_KEY: ci-placeholder-not-a-secret
+      VITE_APP_URL: https://example.invalid
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Install locked packages without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --fund=false
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+
+  dependencies:
+    name: Dependency audit
+    needs: security
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - run: npm audit --package-lock-only --ignore-scripts --audit-level=high
+
+  required:
+    name: CI required
+    if: always()
+    needs: [security, quality, dependencies]
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    env:
+      SECURITY: ${{ needs.security.result }}
+      QUALITY: ${{ needs.quality.result }}
+      DEPENDENCIES: ${{ needs.dependencies.result }}
+    steps:
+      - name: Require every gate to succeed
+        run: test "$SECURITY" = success && test "$QUALITY" = success && test "$DEPENDENCIES" = success

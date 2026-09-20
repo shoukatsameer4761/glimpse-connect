@@ -87,7 +87,7 @@ export default function AuraSort() {
   const toggleMusic = () => {
     if (!audioContextRef.current) {
       audioContextRef.current = new (
-        window.AudioContext || (window as any).webkitAudioContext
+        window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
       )();
     }
 
@@ -156,7 +156,7 @@ export default function AuraSort() {
     const activeColors = shuffledColors.slice(0, colorCount);
 
     // 1. Start with a completely SOLVED state
-    let scaffoldTubes: string[][] = [];
+    const scaffoldTubes: string[][] = [];
     for (let i = 0; i < colorCount; i++) {
       scaffoldTubes.push(Array(TUBE_CAPACITY).fill(activeColors[i]));
     }
@@ -174,16 +174,16 @@ export default function AuraSort() {
 
     for (let step = 0; step < shuffleMoves; step++) {
       // Find all legal reverse moves
-      let validReverseMoves: { from: number; to: number }[] = [];
+      const validReverseMoves: { from: number; to: number }[] = [];
 
       for (let b = 0; b < totalTubes; b++) {
         if (scaffoldTubes[b].length === 0) continue; // Tube is empty, nothing to pull from
 
-        let ball = scaffoldTubes[b][scaffoldTubes[b].length - 1];
+        const ball = scaffoldTubes[b][scaffoldTubes[b].length - 1];
 
         // In reverse, a move is legal if the tube we take FROM would have naturally accepted this ball in forward time.
         // It accepts it if it becomes empty, OR if the new top matches the ball's color.
-        let isLegalReverse =
+        const isLegalReverse =
           scaffoldTubes[b].length === 1 ||
           scaffoldTubes[b][scaffoldTubes[b].length - 2] === ball;
 
@@ -204,9 +204,9 @@ export default function AuraSort() {
       if (validReverseMoves.length === 0) break; // Safety fallback
 
       // Execute a random legal reverse move
-      let move =
+      const move =
         validReverseMoves[Math.floor(Math.random() * validReverseMoves.length)];
-      let popped = scaffoldTubes[move.from].pop()!;
+      const popped = scaffoldTubes[move.from].pop()!;
       scaffoldTubes[move.to].push(popped);
 
       lastSource = move.from;

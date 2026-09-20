@@ -22,7 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-temp_auto_push.bat
-temp_interactive_push.bat
-config.bat
-branch_structure.json
+
+# Local credentials and generated Python files
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc

@@ -190,8 +190,8 @@ const CyberReflex = () => {
 
   // Timer & Game Loop
   useEffect(() => {
-    let timerId: any;
-    let spawnerId: any;
+    let timerId: ReturnType<typeof setInterval>;
+    let spawnerId: ReturnType<typeof setInterval>;
 
     if (gameState === "playing") {
       const stageConfig =
@@ -255,7 +255,7 @@ const CyberReflex = () => {
 
   // Target Expiration Loop (Remove targets if they expire)
   useEffect(() => {
-    let expireId: any;
+    let expireId: ReturnType<typeof setTimeout>;
     if (gameState === "playing") {
       expireId = setInterval(() => {
         const now = Date.now();

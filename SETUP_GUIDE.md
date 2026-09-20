@@ -322,7 +322,7 @@ This ensures OAuth redirects and password reset emails point to the right place.
 ## Start the App
 
 ```bash
-npm install
+npm ci --ignore-scripts
 npm run dev
 ```
 

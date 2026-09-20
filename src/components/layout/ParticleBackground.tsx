@@ -10,7 +10,7 @@ const ParticleBackground = () => {
     if (!ctx) return;
 
     let animationId: number;
-    let mouse = { x: 0, y: 0 };
+    const mouse = { x: 0, y: 0 };
 
     const resize = () => {
       canvas.width = window.innerWidth;
