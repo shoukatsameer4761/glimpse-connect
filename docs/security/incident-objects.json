@@ -1,0 +1,149 @@
+{
+  "objects": 650,
+  "commits": 63,
+  "blobs": 385,
+  "hits": [
+    {
+      "blob": "06d3ce972b039740062a9333214ebef58c1980f8",
+      "bytes": 31487,
+      "sha256": "e99edcfa4e4190c92e77870ff2a93aa11d866c6806931fbf5d31995384bfb4bb",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "925f819de2b6a5318fa9207e22697f1a0e082c56",
+          "paths": [
+            "postcss.config.js"
+          ]
+        }
+      ]
+    },
+    {
+      "blob": "116ad4ab4ae71827f5876c9eab01392e7045e55f",
+      "bytes": 32874,
+      "sha256": "c98f2703db7e8b73b296e686cc8dee89d1b1643a90c3e89ef90b6a75805421aa",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "7119de2e66cfddb48abe391bd890b183ae0d7a93",
+          "paths": [
+            "public/fonts/fa-solid-400.woff2"
+          ]
+        },
+        {
+          "commit": "d852fc2a14894435c20a3b9f5733506057a75ab4",
+          "paths": [
+            "public/fonts/fa-solid-400.woff2"
+          ]
+        }
+      ]
+    },
+    {
+      "blob": "3866568744a42cc2777237aa4644e1fc81dcdaf8",
+      "bytes": 33018,
+      "sha256": "e090e83de497d1f553643b004ec6afa9bde0dedf96a64ef7062cac513017ab7c",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "5b2c404eeb36e540a6f69bcf78919001f100dc76",
+          "paths": [
+            "postcss.config.js"
+          ]
+        }
+      ]
+    },
+    {
+      "blob": "6f26476ab8e3962a9248a541efd5343b5d305aea",
+      "bytes": 33246,
+      "sha256": "c5543cb8492b2121efc6c53920612678463a582c516dc352f7ddb3f7762afafa",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "c0cc9b7dee73a0bb3e2416542e4336876a1f73d6",
+          "paths": [
+            "postcss.config.js"
+          ]
+        },
+        {
+          "commit": "d852fc2a14894435c20a3b9f5733506057a75ab4",
+          "paths": [
+            "postcss.config.js"
+          ]
+        }
+      ]
+    },
+    {
+      "blob": "76c919197628eab4e12900c7de26a2994967c755",
+      "bytes": 30037,
+      "sha256": "800b4a091d2259e76f144d28bc008efe9d53ef7a4c41557e25c8237c01e32509",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "035b62e33e05004626bb95919b82566d9aa29586",
+          "paths": [
+            "public/fonts/fa-solid-400.woff2"
+          ]
+        }
+      ]
+    },
+    {
+      "blob": "870b5faa8abec63bc2570d5fea4da5ae8b5be800",
+      "bytes": 30221,
+      "sha256": "11915bd04afa9bd30b81c5ea8b933d4853bb9d3c0ef2278cb9ee72b41154f6e1",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "035b62e33e05004626bb95919b82566d9aa29586",
+          "paths": [
+            "postcss.config.js"
+          ]
+        },
+        {
+          "commit": "7657dd96fe1923d739dfbd5ce29b2972e2e149e9",
+          "paths": [
+            "postcss.config.js"
+          ]
+        }
+      ]
+    },
+    {
+      "blob": "c49f2a0d1b6972f979d46075d1430144882a4c30",
+      "bytes": 30134,
+      "sha256": "0e66363bf151d3abcfe055c8d041741da77e0312635d68d1469a5bde8fd8017b",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "a575d28ed0fad86e9284becd2e8922828396399d",
+          "paths": [
+            "postcss.config.js"
+          ]
+        },
+        {
+          "commit": "e00e6ce11a9838e3ba219e2e675631b4d8cecece",
+          "paths": [
+            "postcss.config.js"
+          ]
+        }
+      ]
+    },
+    {
+      "blob": "cd0f7f812f0f370f3e922338afb6aa23c6ed3d52",
+      "bytes": 33246,
+      "sha256": "9a91da5ef1b4bdcde45ba70d7b209ca644f5910cf739769c0e750597537f2750",
+      "hex_obfuscation": true,
+      "occurrences": [
+        {
+          "commit": "292ad9cfe75952878b1caab033f6a966977c42ad",
+          "paths": [
+            "postcss.config.js"
+          ]
+        },
+        {
+          "commit": "7119de2e66cfddb48abe391bd890b183ae0d7a93",
+          "paths": [
+            "postcss.config.js"
+          ]
+        }
+      ]
+    }
+  ]
+}
